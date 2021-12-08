@@ -3,6 +3,12 @@ import { View, StyleSheet, Image } from "react-native";
 import Text from "./Text";
 
 const RepositoryItem = ({ fullName, description, language, forksCount, stargazersCount, ratingAverage, reviewCount, ownerAvatarUrl }) => {
+
+    const convertNumber = (number) => {
+        const result = Number(number) / 1000
+        return `${result.toFixed(1)}k`
+    }
+
     return (
         <View style={styles.item}>
             <View style={{ flexDirection: 'row'}}>
@@ -15,11 +21,11 @@ const RepositoryItem = ({ fullName, description, language, forksCount, stargazer
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 20}}>
                 <View style={styles.flexItem}>
-                    <Text fontWeight="bold">{stargazersCount}</Text>
+                    <Text fontWeight="bold">{Number(stargazersCount) > 1000 ? convertNumber(stargazersCount) : `${stargazersCount}k`}</Text>
                     <Text>Stars</Text>
                 </View>
                 <View style={styles.flexItem}>
-                    <Text fontWeight="bold">{forksCount}</Text>
+                    <Text fontWeight="bold">{Number(forksCount) > 1000 ? convertNumber(forksCount) : `${forksCount}k`}</Text>
                     <Text>Forks</Text>
                 </View>
                 <View style={styles.flexItem}>
