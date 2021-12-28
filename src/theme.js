@@ -12,9 +12,9 @@ const theme = {
     },
     fonts: {
       main: Platform.select({
-        android: 'Sans-serif',
+        android: 'sans-serif',
         ios: 'Arial',
-        default:'System'
+        default: 'System'
       }),
     },
     fontWeights: {
